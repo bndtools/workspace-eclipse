@@ -1,0 +1,28 @@
+# Repositories
+# Eclipse Platform 4.41 and SimRel 2026-09:   cnf/ext/eclipse_4.41_*.bnd
+# OSGi R8 API (Maven Central) + ${osgi.api}:  cnf/ext/osgi-api.bnd
+
+-plugin.7.Local: \
+    aQute.bnd.deployer.repository.LocalIndexedRepo; \
+        name = Local; \
+        pretty = true; \
+        local = ${build}/local
+
+-plugin.9.Release: \
+    aQute.bnd.deployer.repository.LocalIndexedRepo; \
+        name = Release; \
+        pretty = true; \
+        local = ${build}/release
+
+-releaserepo: Release
+-baselinerepo: Release
+
+# Always use contracts
+-contract: *
+
+# Eclipse 4.41 requires Java 21
+-runee: JavaSE-21
+
+# Set Git revision information in the manifests of built bundles
+Git-Descriptor:           ${system-allow-fail;git describe --dirty --always}
+Git-SHA:                  ${system-allow-fail;git rev-list -1 HEAD}

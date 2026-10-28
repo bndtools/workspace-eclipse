@@ -1,0 +1,94 @@
+# OSGi R8 API repository
+# Maven Central backed repository; artifacts are listed in osgi-api.mvn.
+-plugin.osgi.api: \
+    aQute.bnd.repository.maven.provider.MavenBndRepository; \
+        snapshotUrl = "https://oss.sonatype.org/content/repositories/snapshots/"; \
+        releaseUrl  = "https://repo.maven.apache.org/maven2/"; \
+        index       = ${.}/osgi-api.mvn; \
+        readOnly    = true; \
+        name        = "OSGi R8 API"
+
+# Whole OSGi R8 API as -buildpath entries, e.g.
+#   -buildpath: ${osgi.api}
+# Lists the individual org.osgi.* API bundles from osgi-api.mvn. The aggregate
+# jars (osgi.core, osgi.enterprise, osgi.annotation, osgi.promise) are omitted
+# because they duplicate the same packages. Keep in sync with osgi-api.mvn.
+osgi.api: \
+    org.osgi.annotation.bundle;version=2.0.0,\
+    org.osgi.annotation.versioning;version=1.1.2,\
+    org.osgi.application;version=1.0.0,\
+    org.osgi.dto;version=1.1.1,\
+    org.osgi.framework;version=1.10.0,\
+    org.osgi.jmx;version=1.1.0,\
+    org.osgi.namespace.contract;version=1.0.0,\
+    org.osgi.namespace.extender;version=1.0.1,\
+    org.osgi.namespace.implementation;version=1.0.0,\
+    org.osgi.namespace.service;version=1.0.0,\
+    org.osgi.namespace.unresolvable;version=1.0.0,\
+    org.osgi.resource;version=1.0.1,\
+    org.osgi.service.application;version=1.1.0,\
+    org.osgi.service.async;version=1.0.0,\
+    org.osgi.service.blueprint;version=1.0.2,\
+    org.osgi.service.cdi;version=1.0.1,\
+    org.osgi.service.clusterinfo;version=1.0.0,\
+    org.osgi.service.cm;version=1.6.1,\
+    org.osgi.service.component;version=1.5.1,\
+    org.osgi.service.component.annotations;version=1.5.1,\
+    org.osgi.service.condition;version=1.0.0,\
+    org.osgi.service.condpermadmin;version=1.1.2,\
+    org.osgi.service.configurator;version=1.0.1,\
+    org.osgi.service.coordinator;version=1.0.2,\
+    org.osgi.service.dal;version=1.0.2,\
+    org.osgi.service.dal.functions;version=1.0.1,\
+    org.osgi.service.deploymentadmin;version=1.1.0,\
+    org.osgi.service.device;version=1.1.1,\
+    org.osgi.service.dmt;version=2.0.2,\
+    org.osgi.service.enocean;version=1.0.1,\
+    org.osgi.service.event;version=1.4.1,\
+    org.osgi.service.feature;version=1.0.0,\
+    org.osgi.service.http;version=1.2.2,\
+    org.osgi.service.http.whiteboard;version=1.1.1,\
+    org.osgi.service.io;version=1.0.0,\
+    org.osgi.service.jakartars;version=2.0.0,\
+    org.osgi.service.jaxrs;version=1.0.1,\
+    org.osgi.service.jdbc;version=1.1.0,\
+    org.osgi.service.jndi;version=1.0.1,\
+    org.osgi.service.jpa;version=1.1.1,\
+    org.osgi.service.log;version=1.5.0,\
+    org.osgi.service.log.stream;version=1.0.0,\
+    org.osgi.service.metatype;version=1.4.1,\
+    org.osgi.service.metatype.annotations;version=1.4.1,\
+    org.osgi.service.monitor;version=1.0.0,\
+    org.osgi.service.networkadapter;version=1.0.1,\
+    org.osgi.service.onem2m;version=1.0.0,\
+    org.osgi.service.packageadmin;version=1.2.1,\
+    org.osgi.service.permissionadmin;version=1.2.1,\
+    org.osgi.service.prefs;version=1.1.2,\
+    org.osgi.service.provisioning;version=1.2.0,\
+    org.osgi.service.remoteserviceadmin;version=1.1.0,\
+    org.osgi.service.repository;version=1.1.0,\
+    org.osgi.service.resolver;version=1.1.1,\
+    org.osgi.service.resourcemonitoring;version=1.0.1,\
+    org.osgi.service.rest;version=1.0.0,\
+    org.osgi.service.serial;version=1.0.1,\
+    org.osgi.service.serviceloader;version=1.0.0,\
+    org.osgi.service.servlet;version=2.0.0,\
+    org.osgi.service.startlevel;version=1.1.1,\
+    org.osgi.service.subsystem;version=1.1.0,\
+    org.osgi.service.tr069todmt;version=1.0.2,\
+    org.osgi.service.transaction.control;version=1.0.0,\
+    org.osgi.service.typedevent;version=1.0.0,\
+    org.osgi.service.upnp;version=1.2.1,\
+    org.osgi.service.url;version=1.0.1,\
+    org.osgi.service.usbinfo;version=1.0.1,\
+    org.osgi.service.useradmin;version=1.1.1,\
+    org.osgi.service.wireadmin;version=1.0.2,\
+    org.osgi.service.zigbee;version=1.0.1,\
+    org.osgi.util.converter;version=1.0.9,\
+    org.osgi.util.function;version=1.2.0,\
+    org.osgi.util.measurement;version=1.0.2,\
+    org.osgi.util.position;version=1.0.1,\
+    org.osgi.util.promise;version=1.3.0,\
+    org.osgi.util.pushstream;version=1.1.0,\
+    org.osgi.util.tracker;version=1.5.4,\
+    org.osgi.util.xml;version=1.0.2
